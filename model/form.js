@@ -16,7 +16,7 @@ const formSchema = new mongoose.Schema({
     privacy: {
         type: String,
         required: true,
-        default: 'RESTRICTED'
+        default: 'PUBLIC'
     },
     totalSubmissions: {
         type: Number,
@@ -30,29 +30,29 @@ const formSchema = new mongoose.Schema({
     //     type: String,
     //     default: 'ADMIN', // Admin |User | Sub-Admin
     // },
-    doNotExpire: {
-        type: Boolean,
-        default: false,
-    },
-    expiryDate: {
-        type: Date,
-    },
+    // doNotExpire: {
+    //     type: Boolean,
+    //     default: false,
+    // },
+    // expiryDate: {
+    //     type: Date,
+    // },
     questionnaire: {
         type: Array,
         required: true,
     },
-    answers: {
-        type: Array,
-        default: []
-    },
-    results: {
-        type: Array,
-        default: []
-    },
-    allowAnonymousSubmission: {
-        type: Boolean,
-        default: false
-    },
+    // answers: {
+    //     type: Array,
+    //     default: []
+    // },
+    // results: {
+    //     type: Array,
+    //     default: []
+    // },
+    // allowAnonymousSubmission: {
+    //     type: Boolean,
+    //     default: false
+    // },
     isActive: {
         type: Boolean,
         default: true,

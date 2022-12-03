@@ -12,14 +12,10 @@ router.post("/create", auth, async (req, res) => {
         // const user = await User.findOne({ _id: decoded.userId });
         const createdBy = decoded.userId;
         const {
+            name,
+            description,
             privacy,
-            totalSubmissions,
-            type,
-            doNotExpire,
-            expiryDate, // should be in UTC Format
             questionnaire,
-            answers,
-            allowAnonymousSubmission,
         } = req.body;
 
         if (questionnaire.length <= 0) {
@@ -31,21 +27,13 @@ router.post("/create", auth, async (req, res) => {
                 },
             });
         }
-        else if (answers.length <= 0) {
-            return res.status(400).json({
-                success: false,
-                error: {
-                    statusCode: 400,
-                    message: "Please send a valid list of Answers.",
-                },
-            });
-        }
         else {
             const form = await Form.create({
                 ...req.body,
                 createdBy,
-                results: [],
-                isActive: true
+                isActive: true,
+                totalSubmissions: 0,
+                type: 'SIMPLE'
             });
             res.status(200).json(form);
         }
