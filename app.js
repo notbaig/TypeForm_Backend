@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const AuthRoute = require('./routes/Auth.route');
 const FormRoute = require('./routes/Form.route');
+const SubmissionRoute = require('./routes/Submissions.route');
 const PublicRoute = require('./routes/Public.route');
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors());
 // Main Routes
 app.use('/auth', AuthRoute);
 app.use('/form', FormRoute);
+app.use('/submissions', SubmissionRoute);
 app.use('/public', PublicRoute);
 
 // Undefined Routes
